@@ -11,27 +11,48 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            //CarTest(carManager);
+            CarTest(carManager);
 
-            foreach (var car in carManager.GetCarDetails())
-            {
-                Console.WriteLine(car.Description + "/" + car.BrandName+"/"+car.ColorName + "/" +car.DailyPrice );
-            }
+           
         }
 
-        //private static void CarTest(CarManager carManager)
-        //{
-        //    Car car = new Car { BrandId = 1, ColorId = 2, DailyPrice = 1000, Description = "Araba", ModelYear = 2021 };
-        //    carManager.Add(car);
+        public static void CarTest(CarManager carManager)
+        {
+            //Car car = new Car { BrandId = 1, ColorId = 2, DailyPrice = 1000, Description = "Araba", ModelYear = 2021 };
+            //carManager.Add(car);
 
-        //    foreach (var car1 in carManager.GetCarsByColorId(2))
-        //    {
-        //        Console.WriteLine(car1.Id);
-        //    }
-        //}
-        
+
+
+
+
+            //var result = carManager.GetCarsByColorId(2);
+
+            //    if (result.Success == true)
+            //    {
+            //        foreach (var car in result.Data)
+            //        {
+            //            Console.WriteLine(car.Description  + "/" + car.ModelYear);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine(result.Message);
+            //    }
+            var result = carManager.GetCarsByColorId(2);
+            foreach (var car in result.Data)
+            {
+                    Console.WriteLine(car.ColorId+ "/" + car.Description);
+
+            }
+            //else
+            //{
+            //    Console.WriteLine(result.Message);
+            //}
+
+        }
+        }
 
 
 }
-}
+
 
